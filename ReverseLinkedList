@@ -4,7 +4,7 @@ class Node:
         self.nxt = nxt
 
 def printNodes(n):
-    while n is not None:
+    while n:
         print n.val
         n = n.nxt
 
