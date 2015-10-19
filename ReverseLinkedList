@@ -1,0 +1,40 @@
+class Node:
+    def __init__ (self, val, nxt):
+        self.val = val
+        self.nxt = nxt
+
+def printNodes(n):
+    while n is not None:
+        print n.val
+        n = n.nxt
+
+def iterativeReverse(n):
+    last = None
+    while n:
+        temp = n.nxt
+        n.nxt = last
+        last = n
+        n = temp
+    return last
+
+def recursiveReverse(n, last):
+    if not n:
+        return last
+    temp = n.nxt
+    n.nxt = last
+    return recursiveReverse(temp, n)
+
+if __name__ == '__main__':
+    n4 = Node(4, None)
+    n3 = Node(3, n4)
+    n2 = Node(2, n3)
+    n1 = Node(1, n2)
+    printNodes(n1)
+    
+    print("First reverse")
+    rev = iterativeReverse(n1)
+    printNodes(rev)
+
+    print("Second reverse")
+    revAgain = recursiveReverse(rev, None)
+    printNodes(revAgain)
